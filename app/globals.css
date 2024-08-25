@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+AT:ital,wght@0,100..400;1,100..400&display=swap');
+
+
+.playWrite {
+    font-family: "Playwrite AT", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  .pulse-animation {
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .animate-wiggle {
+    rotate: calc(-30deg);
+    animation: wiggle 2s infinite;
+  }
+
+  @keyframes flower {
+    0%, 100% { 
+      transform: rotate(0deg); 
+    }
+    50% { 
+      transform: rotate(0.5deg); 
+    }
+  }
+  
+  .animate-flower {
+    animation: flower 2s infinite ease-in-out;
+  }
+
+
+  /* globals.css */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.record {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 4s linear infinite;
+}
+
+.record-center {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  color: black;
+  font-size: 12px;
+}

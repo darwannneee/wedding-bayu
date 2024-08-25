@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//Your App//EN
+BEGIN:VEVENT
+UID:wahyuzulfirman@gmail.com
+DTSTAMP:20230801T120000Z
+DTSTART:20240915T030000Z
+DTEND:20240915T110000Z
+SUMMARY:The Wedding Of Nafa Fatma Azahra & Wahyu Zulfirman
+DESCRIPTION:Akad Nikah
+LOCATION:Rumah, Jl. Karanganyar Kesambi No. 61 RT. 01 RW. 02 Kel. Kesambi Kec. Kesambi Kota Cirebon
+END:VEVENT
+END:VCALENDAR
