@@ -124,8 +124,9 @@ export default function Home() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
-      setTo(urlParams.get('to') ?? '');
-      setName(urlParams.get('to') ?? ''); // Initialize name with the value of 'to'
+      const initialTo = urlParams.get('to') ?? '';
+      setTo(initialTo);
+      setName(initialTo); // Initialize name with the value of 'to'
     }
   }, []);
 
@@ -161,7 +162,7 @@ export default function Home() {
   // Target CountDown
   useEffect(() => {
     // Change it - Target Countdown
-    const targetDate = moment("2024-09-10");
+    const targetDate = moment("2024-09-15");
     const updateCountdown = () => {
       const now = moment();
       const duration = moment.duration(targetDate.diff(now));
@@ -254,7 +255,7 @@ export default function Home() {
   const submitComment = async () => {
     try {
       const newComment = {
-        name,
+        name: to,
         message,
         timestamp: new Date(),
       };
@@ -386,7 +387,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className={`container mx-auto px-4 text-center ${PoppinsFont.className} text-white relative`}>
           <h2 className="text-4xl font-bold">Save the Date</h2>
-          <p className='text-xs pt-5'>&quot;Seperti matahari terbenam yang indah, cinta kami bersinar. Bergabunglah dengan kami dalam merayakan awal baru ini.&quot;</p>
+          <p className='text-xs pt-5'>&quot;Tidak seperti matahari yang tenggelam, cinta kami tak pernah pudar. Temani kami dalam merayakan awal kisah baru yang abadi ini.&quot;</p>
           <div className="flex justify-center mt-4">
             <svg className="pulse-animation" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -400,7 +401,7 @@ export default function Home() {
               <span className='bg-white p-3 text-black rounded-xl ml-2'>{`${timeLeft.seconds}s`}</span>
             </p>
           </div>
-          <p className="text-sm mt-4">Selasa, 10 September 2024</p>
+          <p className="text-sm mt-4">Minggu, 15 September 2024</p>
           <div className='pt-8'>
             <a href="/savethedate.ics" download="/savethedate.ics" >
               <button className={`bg-white text-black p-2 rounded-lg hover:shadow-md ${PoppinsFont.className}`}>Save The Date</button>
@@ -600,7 +601,7 @@ export default function Home() {
           </svg>
           <div className='absolute inset-0 bg-black opacity-80 z-10'></div>
           <div className='relative z-20 flex flex-col items-center justify-center h-full px-10'>
-              <h1 className={`${SignikaFont.className} font-bold text-white xl:text-xl`}>Cinta adalah kekuatan yang membawa dua jiwa menjadi satu, mewujudkan kebahagiaan yang tak terhingga dalam kesederhanaan kebersamaan.</h1>
+              <h1 className={`${SignikaFont.className} font-bold text-white xl:text-xl`}>Cinta adalah jalinan dua hati yang saling menguatkan, menemukan keindahan dalam setiap detak waktu, dan menciptakan keabadian dalam momen-momen sederhana yang berbicara lebih dari kata-kata.</h1>
               <div className='absolute bottom-10 flex flex-col items-center'>
                   <h1 className={`text-white mb-2 ${PoppinsBold.className} xl:text-xl`}>Love, from</h1>
                   <svg className="pulse-animation" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
