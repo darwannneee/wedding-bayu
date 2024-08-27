@@ -108,8 +108,37 @@ export default function Home() {
   const [name, setName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [showPopup, setShowPopup] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('BRI');
+
+  const renderPopupContent = () => {
+    switch (selectedOption) {
+      case 'BRI':
+        return (
+          <>
+            <img src="https://buatlogoonline.com/wp-content/uploads/2022/10/Logo-Bank-BRI.png" alt="BRI Logo" />
+            <h1 className='font-bold pt-3'>548901000617509 - AN WAHYU ZULFIRMAN</h1>
+          </>
+        );
+      case 'EVM':
+        return (
+          <>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/ETH_logo_landscape_%28gray%29.png" alt="EVM Logo" />
+            <h1 className='font-bold pt-3'>EVM Address: 0xb70e0302e1b6ee451740adbe8bf5e2dbe7281984</h1>
+          </>
+        );
+      case 'Solana':
+        return (
+          <>
+            <img src="https://www.chainalysis.com/wp-content/uploads/2022/08/shutterstock-2176242673-scaled-1-1500x970.jpg" alt="Solana Logo" />
+            <h1 className='font-bold pt-3'>Solana Address: AMDnM3M1DpAmqmB7mUuTvha1h3ECzKN1X2572iELJ7qT</h1>
+          </>
+        );
+      default:
+        return null;
+    }
+  }; 
 
   const openModal = (image: string) => {
     setSelectedImage(image);
@@ -276,7 +305,6 @@ export default function Home() {
     return moment(timestamp).format('MMMM D, [at] HH:mm');
   };
 
-  const [showPopup, setShowPopup] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(false);
 
   useEffect(() => {
@@ -309,6 +337,7 @@ export default function Home() {
       </div>
     );
   }
+
 
   return (
     <div className='overflow-x-hidden'>
@@ -450,7 +479,9 @@ export default function Home() {
 
       <div className='bg-slate-100 w-full h-full flex flex-col justify-center items-center py-6 -mt-1 relative'>
 
-        {/* Resepsi */}
+        
+
+        {/* Akad Nikah */}
         <div className='relative w-full h-full flex justify-center items-center py-6'>
           <img alt="Flower" src={Flower3.src} className="absolute w-fit h-full animate-wiggle" />
           <div className='bg-white shadow-md rounded-md w-64 h-[500px] text-center flex flex-col justify-center items-center rounded-t-full z-10'>
@@ -470,7 +501,37 @@ export default function Home() {
                 <h1>MINGGU</h1>
                 <h1 className='text-4xl font-bold'>15</h1>
                 <h1 className='font-bold'>September 2024</h1>
-                <h1>Pukul : 10.00 - 18.00 WIB</h1>
+                <h1>Pukul : 08.00 WIB</h1>
+                {/* Location */}
+                <div className='pt-4'>
+                  <h1 className='text-xs'>Rumah</h1>
+                  <h1 className='text-xs'>Jl. Karanganyar Kesambi No. 61 RT. 01 RW. 02 Kel. Kesambi Kec. Kesambi Kota Cirebon</h1>
+                </div>
+              </div>
+            </div>
+            <button className='bg-gray-200 w-52 h-10 rounded-full mt-4'>
+              <div className='flex text-center items-center justify-center'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+                <a href='https://maps.app.goo.gl/DpH2UGq33iZxFBjy7' className='pl-1'>Lokasi Acara</a>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Resepsi */}
+      <div className='relative w-full h-full flex justify-center items-center py-6'>
+          <img src={FlowerPNG.src} alt="Flower" className="absolute w-fit h-full animate-wiggle" />
+          <div className='bg-white shadow-md rounded-md w-64 h-[500px] text-center flex flex-col justify-center items-center rounded-t-full z-10'>
+            <div className='flex flex-col justify-center items-center'>
+            <svg fill="#000000" width={80} height={80} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 492.388 492.388" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M217.015,189.087c-15.393-5.529-32.371,2.48-37.893,17.882l-17.729,49.416l-1.777-30.452l56.055-155.7 c3.762-10.393-0.752-22.195-10.865-27.299c-10.93-5.521-24.258-1.136-29.779,9.794L96.425,208.314 c-1.682,3.361-2.673,7.264-2.673,11.282l0.416,117.078l-72.232,37.924C1.9,385.119-5.813,409.881,4.701,429.908 c10.529,20.035,35.283,27.748,55.318,17.227l133.504-70.104l3.058-1.601c8.945-4.769,15.681-13.481,17.521-24.259l22.114-129.207 C238.601,208.056,230.76,194.015,217.015,189.087z"></path> <path d="M470.453,374.597l-72.232-37.924l0.416-117.078c0-4.018-0.991-7.921-2.673-11.282L317.363,52.727 c-5.521-10.93-18.85-15.314-29.779-9.794c-10.113,5.104-14.626,16.905-10.865,27.299l56.055,155.7l-1.776,30.452l-17.729-49.416 c-5.522-15.401-22.5-23.411-37.893-17.882c-13.746,4.929-21.587,18.97-19.203,32.877l22.115,129.207 c1.84,10.778,8.576,19.491,17.521,24.259l3.058,1.601l133.504,70.104c20.035,10.521,44.789,2.808,55.318-17.227 C498.201,409.881,490.488,385.119,470.453,374.597z"></path> </g> </g></svg>
+              <h1 className={`text-2xl font-bold ${PoppinsBold.className}`}>Resepsi</h1>
+              <div className={`${RobotoFont.className} pt-4 text-sm mx-5`}>
+                <h1>MINGGU</h1>
+                <h1 className='text-4xl font-bold'>15</h1>
+                <h1 className='font-bold'>September 2024</h1>
+                <h1>Pukul : 10.00 WIB</h1>
                 {/* Location */}
                 <div className='pt-4'>
                   <h1 className='text-xs'>Rumah</h1>
@@ -490,6 +551,8 @@ export default function Home() {
         </div>
       </div>
 
+      
+
       <div className="bg-neutral-200 w-full h-full relative">
       <img 
         src={FlowerAtas.src} 
@@ -508,6 +571,7 @@ export default function Home() {
             placeholder='Name'
             value={to}
             onChange={(e) => setTo(e.target.value)}  // Ubah to saat input berubah
+            required
           />
           <textarea 
             placeholder='Give us your wishes' 
@@ -515,6 +579,7 @@ export default function Home() {
             rows={4}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            required
           />
         </div>
 
@@ -527,7 +592,7 @@ export default function Home() {
         <h1 className='text-center'>Or</h1>
         <button 
           className='w-full p-2 bg-pink-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center justify-center space-x-2' 
-          onClick={() => setShowPopup(!showPopup)}
+          onClick={() => setShowPopup(true)}
         >
           <span className={`${PoppinsFont.className}`}>Send Gift / Money</span>
           <svg height="20" viewBox="0 0 511.99789 511" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -550,26 +615,33 @@ export default function Home() {
 
         {/* Change it - Gift BCA */}
         {showPopup && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="bg-white rounded-lg overflow-hidden w-80 p-6 shadow-lg">
-              <div className="font-bold text-lg mb-4">SEND GIFT</div>
-              <div className="mb-4">
-                {/* Img SRC image BCA */}
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png" alt="" />
-                {/* REK An BCA */}
-                <h1 className='font-bold pt-3'>10109826 - AN WAHYU ZULFIRMAN</h1>
-              </div>
-              <div className="flex justify-end space-x-2">
-                <button 
-                  onClick={() => setShowPopup(false)} 
-                  className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600"
-                >
-                  Close
-                </button>
-              </div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white rounded-lg overflow-hidden w-80 p-6 shadow-lg">
+            <div className="font-bold text-lg mb-4">SEND GIFT</div>
+            <div className="mb-4">
+              <select 
+                onChange={(e) => setSelectedOption(e.target.value)} 
+                value={selectedOption} 
+                className="mb-4 p-2 border rounded-md"
+              >
+                <option value="BRI">BRI</option>
+                <option value="EVM">EVM</option>
+                <option value="Solana">Solana</option>
+              </select>
+
+              {renderPopupContent()}
+            </div>
+            <div className="flex justify-end space-x-2">
+              <button 
+                onClick={() => setShowPopup(false)} 
+                className="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600"
+              >
+                Close
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
         
         <div className='mt-10 mb-0'>
           <h2 className={`text-black text-center ${VollkornbBold.className} text-2xl mb-4`}>All Wishes and Friends</h2>
