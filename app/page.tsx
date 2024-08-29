@@ -116,22 +116,32 @@ export default function Home() {
     switch (selectedOption) {
       case 'EVM':
         return (
-          <div className='mx-5'>
+          <div className="mx-5">
             <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/ETH_logo_landscape_%28gray%29.png" alt="EVM Logo" />
-            <h1 className='font-bold pt-3'>EVM Address: 0xb70e0302e1b6ee451740adbe8bf5e2dbe7281984</h1>
+            <div className="font-bold pt-3 text-sm break-all max-w-full">
+              EVM Address: 
+              <span className="block break-all">
+                0xb70e0302e1b6ee451740adbe8bf5e2dbe7281984
+              </span>
+            </div>
           </div>
         );
       case 'Solana':
         return (
-          <div className='mx-5'>
+          <div className="mx-5">
             <img src="https://www.chainalysis.com/wp-content/uploads/2022/08/shutterstock-2176242673-scaled-1-1500x970.jpg" alt="Solana Logo" />
-            <h1 className='font-bold pt-3'>Solana Address: AMDnM3M1DpAmqmB7mUuTvha1h3ECzKN1X2572iELJ7qT</h1>
+            <div className="font-bold pt-3 text-sm break-all max-w-full">
+              Solana Address:
+              <span className="block break-all">
+                AMDnM3M1DpAmqmB7mUuTvha1h3ECzKN1X2572iELJ7qT
+              </span>
+            </div>
           </div>
         );
       default:
         return null;
     }
-  }; 
+  };
 
   const openModal = (image: string) => {
     setSelectedImage(image);
